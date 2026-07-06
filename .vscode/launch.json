@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "name": "⚡ FastAPI Backend",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "main:app",
+        "--reload",
+        "--port",
+        "8000"
+      ],
+      "jinja": true,
+      "cwd": "${workspaceRoot:🚀 BACKEND (FastAPI)}",
+      "envFile": "${workspaceRoot:🚀 BACKEND (FastAPI)}/.env"
+    },
+    {
+      "name": "🎨 Next.js Frontend",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceRoot:🎨 FRONTEND (Next.js)}",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "ready on"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "🚀 Launch Both (Full Stack)",
+      "configurations": ["⚡ FastAPI Backend", "🎨 Next.js Frontend"]
+    }
+  ]
+}
