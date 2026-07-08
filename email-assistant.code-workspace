@@ -5,77 +5,33 @@
       "path": "backend"
     },
     {
-      "name": "🎨 FRONTEND (Next.js)",
+      "name": "🎨 NEXT.JS FRONTEND",
       "path": "frontend"
     }
   ],
-  "settings": {
-    "[python]": {
-      "python.defaultInterpreterPath": "${workspaceRoot:🚀 BACKEND (FastAPI)}/.venv/Scripts/python.exe",
-      "editor.defaultFormatter": "astral-sh.ruff",
-      "editor.formatOnSave": true,
-      "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
-      }
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true
-    },
-    "files.exclude": {
-      "**/.git": true,
-      "**/.DS_Store": true,
-      "**/__pycache__": true,
-      "**/.pytest_cache": true,
-      "**/node_modules": true
-    }
-  },
+  "settings": {},
   "launch": {
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "⚡ FastAPI Backend",
-        "type": "debugpy",
+        "name": "🐍 Run Backend",
+        "type": "node-terminal",
         "request": "launch",
-        "python": "${workspaceRoot:🚀 BACKEND (FastAPI)}/.venv/Scripts/python.exe", // Explicitly forces the .venv interpreter
-        "module": "uvicorn",
-        "args": [
-          "main:app",
-          "--reload",
-          "--port",
-          "8000"
-        ],
-        "jinja": true,
-        "cwd": "${workspaceRoot:🚀 BACKEND (FastAPI)}",
-        "envFile": "${workspaceRoot:🚀 BACKEND (FastAPI)}/.env"
+        "command": ".venv\\Scripts\\uvicorn main:app --reload --port 8000",
+        "cwd": "${workspaceRoot:🚀 BACKEND (FastAPI)}"
       },
       {
-        "name": "🎨 Next.js Frontend",
-        "type": "node",
+        "name": "⚛️ Run Frontend",
+        "type": "node-terminal",
         "request": "launch",
-        "runtimeExecutable": "npm",
-        "runtimeArgs": [
-          "run",
-          "dev"
-        ],
-        "cwd": "${workspaceRoot:🎨 FRONTEND (Next.js)}",
-        "serverReadyAction": {
-          "action": "openExternally",
-          "pattern": "ready on"
-        }
+        "command": "npm run dev",
+        "cwd": "${workspaceRoot:🎨 NEXT.JS FRONTEND}"
       }
     ],
     "compounds": [
       {
-        "name": "🚀 Launch Both (Full Stack)",
-        "configurations": [
-          "⚡ FastAPI Backend",
-          "🎨 Next.js Frontend"
-        ]
+        "name": "🚀 RUN FULL STACK",
+        "configurations": ["🐍 Run Backend", "⚛️ Run Frontend"]
       }
     ]
   }
