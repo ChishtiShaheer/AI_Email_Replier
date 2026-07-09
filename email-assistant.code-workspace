@@ -15,9 +15,16 @@
     "configurations": [
       {
         "name": "🐍 Run Backend",
-        "type": "node-terminal",
+        "type": "debugpy",
         "request": "launch",
-        "command": ".venv\\Scripts\\uvicorn main:app --reload --port 8000",
+        "module": "uvicorn",
+        "python": "${workspaceRoot:🚀 BACKEND (FastAPI)}/.venv/Scripts/python.exe", // <-- THIS LINE FORCES THE VENV
+        "args": [
+          "main:app",
+          "--reload",
+          "--port",
+          "8000"
+        ],
         "cwd": "${workspaceRoot:🚀 BACKEND (FastAPI)}"
       },
       {
