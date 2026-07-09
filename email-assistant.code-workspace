@@ -9,7 +9,9 @@
       "path": "frontend"
     }
   ],
-  "settings": {},
+  "settings": {
+  "python.defaultInterpreterPath": "${workspaceFolder:🚀 BACKEND (FastAPI)}/.venv/Scripts/python.exe"
+},
   "launch": {
     "version": "0.2.0",
     "configurations": [
