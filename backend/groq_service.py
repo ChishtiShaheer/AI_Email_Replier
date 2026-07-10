@@ -8,8 +8,15 @@ for a prototype. Get a key at https://console.groq.com/keys
 
 import json
 import os
+from pathlib import Path
 
+from dotenv import load_dotenv
 from groq import Groq
+
+# Load .env from this file's own folder — guarantees GROQ_API_KEY is set
+# BEFORE the Groq client below is constructed, regardless of what order
+# other modules import this file in.
+load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 

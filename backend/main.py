@@ -10,14 +10,11 @@ from email import message_from_bytes
 from email.policy import default as email_default_policy
 from typing import Optional
 
-from dotenv import load_dotenv
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 from groq_service import generate_email_reply
 from models import GenerateReplyResponse, Tone
-
-load_dotenv()
 
 app = FastAPI(title="AI Email Reply Assistant", version="1.0.0")
 
